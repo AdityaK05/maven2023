@@ -14,6 +14,12 @@ pipeline {
             }
         }
 
+        stage('Verify WAR') {
+            steps {
+                sh 'ls -l target/'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh 'ansible-playbook playbook.yml -i hosts.ini'
